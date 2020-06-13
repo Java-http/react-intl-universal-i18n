@@ -12,19 +12,19 @@
 
 **代码提示**
 
-![](./gif/1.gif)
+![1.gif](https://i.loli.net/2020/06/14/ksBrc8uFogleATD.gif)
 
 **代码转换**
 
-![](./gif/2.gif)
+![2.gif](https://i.loli.net/2020/06/14/nFjxg2vu4KlD13G.gif)
 
 **定义跳转**
 
-![](./gif/3.gif)
+![3.gif](https://i.loli.net/2020/06/14/5HDbklZNB73Cf1x.gif)
 
 **key值提示**
 
-![](./gif/4.gif)
+![4.gif](https://i.loli.net/2020/06/14/G73tjRMUhyYZ4gz.gif)
 
 ## Extension Settings
 
