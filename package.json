@@ -7,7 +7,7 @@
 	"publisher": "jingxiu",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Java-http/CSS-Modules-transform-vsc"
+    "url": "https://github.com/Java-http/react-intl-universal-i18n"
   },
 	"engines": {
 		"vscode": "^1.45.0"
