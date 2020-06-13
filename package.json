@@ -1,0 +1,78 @@
+{
+	"name": "react-intl-universal-i18n",
+	"displayName": "react-intl-universal-i18n",
+	"description": "",
+	"version": "0.0.1",
+	"icon":"icon.png",
+	"publisher": "jingxiu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Java-http/CSS-Modules-transform-vsc"
+  },
+	"engines": {
+		"vscode": "^1.45.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:react-intl-universal-i18n.i18nTransform",
+		"onCommand:react-intl-universal-i18n.i18nReload",
+		"onLanguage:javascriptreact",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+      "title": "react-intl-universal-i18n配置",
+      "properties": {
+        "react-intl-universal-i18n.configPath": {
+          "type": "string",
+          "default": "locales",
+          "description": "多语言文件文件夹,eg(locales)"
+        },
+        "react-intl-universal-i18n.defaultDefinition": {
+          "type": ["string", "array"],
+          "default": "",
+          "description": "多语言定义跳转语言文件"
+        }
+      }
+    },
+		"commands": [
+			{
+				"command": "react-intl-universal-i18n.i18nTransform",
+				"title": "i18n语言转换"
+			},
+			{
+				"command": "react-intl-universal-i18n.i18nReload",
+				"title": "i18n更新语言文件"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.45.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.26.0",
+		"@typescript-eslint/eslint-plugin": "^2.26.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"recast": "^0.19.1"
+	}
+}
