@@ -59,14 +59,34 @@ export function Uint8ArrayToString(array:Uint8Array) {
 }
 
 /** 获取字符串在当前行位置范围 */
-export function getRange(str:string){
-	const re=str.match(/intl\.get\(['"]([\w-]+)['"]/);
-	if(re){
-		const value = re[1];
-		const statrIndex = str.indexOf(value);
-		const endIndex = statrIndex + value.length - 1;
-		return {value,statrIndex,endIndex};
-	}
+export function getRange(str:string,character:number){
+  const re:{
+    value:string,
+    statrIndex:number,
+    endIndex:number
+  }[]=[];
+
+	str.replace(/intl\.get\(['"]([\w-]+)['"]/g,($0:string,$1:string,$2:number)=>{
+    re.push({
+      value:$1,
+      statrIndex:$2+$0.indexOf($1),
+      endIndex:$2+$0.indexOf($1)+$1.length -1
+    });
+    return ''; 
+  });
+
+	if(!re.length){return;};
+  const result = re.filter(({
+    statrIndex,
+    endIndex
+  })=>{
+    return (character>=statrIndex &&  character<=endIndex); 
+  });
+
+  if(result.length){
+    return result[0];
+  }
+  return undefined;
 }
 
 /**

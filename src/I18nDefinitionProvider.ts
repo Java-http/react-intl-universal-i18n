@@ -27,10 +27,9 @@ export default class implements DefinitionProvider{
     let lineWord = document.lineAt(position).text;
 
     // 匹配intl.get("xx"
-    const getRangeRe = getRange(lineWord);
+    const getRangeRe = getRange(lineWord,character);
     if(!getRangeRe) {return;}; 
-    const {value,statrIndex,endIndex} =getRangeRe;
-    if(character<statrIndex || character>endIndex) {return;};
+    const {value} =getRangeRe;
 
     const location = await getWordLocation(value,document,this._Dictionary,this._conf);
     if(!location) {return;};
