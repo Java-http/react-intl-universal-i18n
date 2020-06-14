@@ -32,7 +32,7 @@
          - description: 多语言文件夹,默认为`src/locales`  
          - type: `string`  
          - default: `src/locales`
-- `react-intl-universal-i18n.defaultDefinition`
+- `react-intl-universal-i18n.defaultDefinition`  
         - description: 多语言定义跳转文件,假如你选择了`en`,则默认跳转`en`语言文件,默认提供全部语言文件定义地址  
         - type: `string`|`string[]`  
         - default: `""` 
