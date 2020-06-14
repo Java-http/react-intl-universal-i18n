@@ -1,8 +1,8 @@
 {
 	"name": "react-intl-universal-i18n",
 	"displayName": "react-intl-universal-i18n",
-	"description": "",
-	"version": "0.0.1",
+	"description": "这是一款`react-intl-universal`提示插件",
+	"version": "0.0.2",
 	"icon":"icon.png",
 	"publisher": "jingxiu",
   "repository": {
@@ -30,8 +30,8 @@
       "properties": {
         "react-intl-universal-i18n.configPath": {
           "type": "string",
-          "default": "locales",
-          "description": "多语言文件文件夹,eg(locales)"
+          "default": "src/locales",
+          "description": "多语言文件文件夹,eg(src/locales)"
         },
         "react-intl-universal-i18n.defaultDefinition": {
           "type": ["string", "array"],
