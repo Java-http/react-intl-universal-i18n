@@ -350,9 +350,11 @@ export function getConf(defaultConf:TConf):TConf{
   const Configuration = vscode.workspace.getConfiguration();
   let configPath:string = Configuration.get('react-intl-universal-i18n.configPath',defaultConf.configPath);
   let defaultDefinition:string = Configuration.get('react-intl-universal-i18n.defaultDefinition',defaultConf.defaultDefinition);
+  let regExp:string = Configuration.get('react-intl-universal-i18n.regExp',defaultConf.regExp);
 
   return {
     configPath,
-    defaultDefinition
+    defaultDefinition,
+    regExp
   };
 }

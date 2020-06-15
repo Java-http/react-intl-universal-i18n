@@ -16,5 +16,7 @@ export interface TConf {
   configPath:string,
   /** 多语言定义跳转默认语言 */
   defaultDefinition:string,
+  /** 匹配格式 */
+  regExp:string,
   [key:string]:string
 }
