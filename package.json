@@ -37,6 +37,11 @@
           "type": ["string", "array"],
           "default": "",
           "description": "多语言定义跳转语言文件"
+        },
+        "react-intl-universal-i18n.regExp": {
+          "type": "string",
+          "default": "intl.get('$1')",
+          "description": "多语言匹配格式,$1为匹配符,必须存在"
         }
       }
     },
