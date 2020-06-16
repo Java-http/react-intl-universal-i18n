@@ -4,6 +4,6 @@ All notable changes to the "react-intl-universal-i18n" extension will be documen
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.0.3] - 2020.6.16
 
-- Initial release
+- 增加格式匹配功能
