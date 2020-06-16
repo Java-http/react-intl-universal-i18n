@@ -59,14 +59,18 @@ export function Uint8ArrayToString(array:Uint8Array) {
 }
 
 /** 获取字符串在当前行位置范围 */
-export function getRange(str:string,character:number){
+export function getRange(str:string,character:number,regExp:string){
   const re:{
     value:string,
     statrIndex:number,
     endIndex:number
   }[]=[];
 
-	str.replace(/intl\.get\(['"]([\w-]+)['"]/g,($0:string,$1:string,$2:number)=>{
+  const regExpObj = getRegExp(regExp);
+  if(!regExpObj) {return;};
+
+  const _RegExp = new RegExp(regExpObj,"g");
+	str.replace(_RegExp,($0:string,$1:string,$2:number)=>{
     re.push({
       value:$1,
       statrIndex:$2+$0.indexOf($1),
@@ -287,8 +291,9 @@ export async function wordLocation(value:string,filePath:string){
 export function transform(source:string,conf:{
   document:vscode.TextDocument
   Dictionary:TDictionary
+  regExp:string
 }){
-  const {document,Dictionary} = conf;
+  const {document,Dictionary,regExp} = conf;
   let re='';
   
   // 寻找当前项目位置
@@ -310,7 +315,9 @@ export function transform(source:string,conf:{
   
   if(!re) {return;}; 
 
-  re = `intl.get('${re}')`;
+  if(!regExp) {return;};
+
+  re = regExp.replace("\$1",re);
   
   return re;
 }
@@ -357,4 +364,33 @@ export function getConf(defaultConf:TConf):TConf{
     defaultDefinition,
     regExp
   };
+}
+
+/** 解析正则表达式 */
+export function getRegExp(RegExpStr:string){
+  if(/\\/.test(RegExpStr)){
+    vscode.window.showInformationMessage("react-intl-universal-i18n插件RegExp设置不支持\\反斜线");
+    return;
+  }
+
+  if(!/\$1/.test(RegExpStr)){
+    vscode.window.showInformationMessage("react-intl-universal-i18n插件RegExp设置必须存在$1");
+    return;
+  }
+
+  // 转译.()$
+  let str=RegExpStr.replace(/([\.\(\)\$])/g,"\\$1");
+  // 转译 '" 为 ['"]
+  str=str.replace(/['"]/g,"['\"]");
+  // 转译$1
+  str=str.replace(/\\\$1/g,"([\\w-]+)");
+  // 转译)$
+  str=str.replace(/(\))$/,"$1?");
+
+  try {
+    new RegExp(str);
+  } catch (error) {
+    return;
+  }
+  return str;
 }

@@ -32,7 +32,8 @@ export default class {
     
     let reversed = transform(word,{
       document,
-      Dictionary:this._Dictionary
+      Dictionary:this._Dictionary,
+      regExp:this._conf.regExp
     });
     
     editor.edit(editBuilder => {

@@ -1,5 +1,5 @@
 import {CompletionItemProvider,TextDocument,Position} from 'vscode';
-import {getLocalesKeys} from './utils';
+import {getLocalesKeys,getRegExp} from './utils';
 import {TDictionary,TConf} from './type';
 import EventBus from './eventBus';
 
@@ -25,7 +25,12 @@ export default class implements CompletionItemProvider{
     // 匹配当前行内容
     const lineText = document.lineAt(position).text;
     const linePrefix = lineText.substr(0, position.character+1);
-    if(!(/.*intl\.get\(['"]['"]$/.test(linePrefix))){
+
+    let regExpObj = getRegExp(this._conf.regExp);
+    if(!regExpObj) {return;};
+    regExpObj=regExpObj.replace(/\(\[\\w-\]\+\)/,'');
+    if(!regExpObj) {return;};
+    if(!(new RegExp(regExpObj).test(linePrefix))){
       return undefined;
     }
 

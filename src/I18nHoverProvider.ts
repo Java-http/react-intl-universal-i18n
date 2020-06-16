@@ -27,7 +27,7 @@ export default class implements HoverProvider{
     let lineWord = document.lineAt(position).text;
 
     // 匹配intl.get("xx"
-    const getRangeRe = getRange(lineWord,character);
+    const getRangeRe = getRange(lineWord,character,this._conf.regExp);
     if(!getRangeRe) {return;}; 
     const {value} =getRangeRe;
 
