@@ -3,12 +3,12 @@
 	"displayName": "react-intl-universal-i18n",
 	"description": "这是一款`react-intl-universal`提示插件",
 	"version": "0.0.3",
-	"icon":"icon.png",
+	"icon": "icon.png",
 	"publisher": "jingxiu",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Java-http/react-intl-universal-i18n"
-  },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Java-http/react-intl-universal-i18n"
+	},
 	"engines": {
 		"vscode": "^1.45.0"
 	},
@@ -19,32 +19,35 @@
 		"onCommand:react-intl-universal-i18n.i18nTransform",
 		"onCommand:react-intl-universal-i18n.i18nReload",
 		"onLanguage:javascriptreact",
-    "onLanguage:javascript",
-    "onLanguage:typescript",
+		"onLanguage:javascript",
+		"onLanguage:typescript",
 		"onLanguage:typescriptreact"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"configuration": {
-      "title": "react-intl-universal-i18n配置",
-      "properties": {
-        "react-intl-universal-i18n.configPath": {
-          "type": "string",
-          "default": "src/locales",
-          "description": "多语言文件文件夹,eg(src/locales)"
-        },
-        "react-intl-universal-i18n.defaultDefinition": {
-          "type": ["string", "array"],
-          "default": "",
-          "description": "多语言定义跳转语言文件"
-        },
-        "react-intl-universal-i18n.regExp": {
-          "type": "string",
-          "default": "intl.get('$1')",
-          "description": "多语言匹配格式,$1为匹配符,必须存在"
-        }
-      }
-    },
+			"title": "react-intl-universal-i18n配置",
+			"properties": {
+				"react-intl-universal-i18n.configPath": {
+					"type": "string",
+					"default": "src/locales",
+					"description": "多语言文件文件夹,eg(src/locales)"
+				},
+				"react-intl-universal-i18n.defaultDefinition": {
+					"type": [
+						"string",
+						"array"
+					],
+					"default": "",
+					"description": "多语言定义跳转语言文件"
+				},
+				"react-intl-universal-i18n.regExp": {
+					"type": "string",
+					"default": "intl.get('$1')",
+					"description": "多语言匹配格式,$1为匹配符,必须存在"
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "react-intl-universal-i18n.i18nTransform",
