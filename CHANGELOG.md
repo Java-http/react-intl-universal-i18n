@@ -1,8 +1,7 @@
-# Change Log
+## [0.1.0] - 2020.9.13
 
-All notable changes to the "react-intl-universal-i18n" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- 增加监听模式
+- 优化代码结构
 
 ## [0.0.3] - 2020.6.16
 
