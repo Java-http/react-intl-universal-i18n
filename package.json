@@ -45,6 +45,11 @@
 					"type": "string",
 					"default": "intl.get('$1')",
 					"description": "多语言匹配格式,$1为匹配符,必须存在"
+				},
+				"react-intl-universal-i18n.watchMode": {
+					"type": "boolean",
+					"default": false,
+					"description": "多语言文件修改是否开启监听模式"
 				}
 			}
 		},

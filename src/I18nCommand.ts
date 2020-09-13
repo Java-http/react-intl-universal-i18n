@@ -1,23 +1,12 @@
-import {Position,Selection,window} from 'vscode';
+import {window} from 'vscode';
 import {transform} from './utils';
-import {TDictionary,TConf} from './type';
-import EventBus from './eventBus';
+
+import Conf from './conf';
+import {Dictionary} from './Dictionary';
 
 export default class {
-  _Dictionary:TDictionary;
-  _conf:TConf;
-
-  constructor(Dictionary:TDictionary,conf:TConf){
-    this._Dictionary = Dictionary;
-    this._conf = conf;
+  constructor(){
     this.init();
-    this.onWatch();
-  }
-
-  onWatch(){
-    EventBus.on("I18nReload",(Dictionary:TDictionary)=>{
-      this._Dictionary = Dictionary;
-    });
   }
 
   async init(){
@@ -30,10 +19,11 @@ export default class {
     let word = document.getText(selection);
     word = word.replace(/^['"](.*)['"]$/,"$1");
     
+    if(!Dictionary) {return;}; 
     let reversed = transform(word,{
       document,
-      Dictionary:this._Dictionary,
-      regExp:this._conf.regExp
+      Dictionary:Dictionary,
+      regExp:Conf.regExp
     });
     
     editor.edit(editBuilder => {

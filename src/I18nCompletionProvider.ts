@@ -1,24 +1,10 @@
 import {CompletionItemProvider,TextDocument,Position} from 'vscode';
 import {getLocalesKeys,getRegExp} from './utils';
-import {TDictionary,TConf} from './type';
-import EventBus from './eventBus';
+
+import Conf from './conf';
+import {Dictionary} from './Dictionary';
 
 export default class implements CompletionItemProvider{
-  _Dictionary:TDictionary;
-  _conf:TConf;
-
-  constructor(Dictionary:TDictionary,conf:TConf){
-    this._Dictionary = Dictionary;
-    this._conf = conf;
-    
-    this.onWatch();
-  }
-
-  onWatch(){
-    EventBus.on("I18nReload",(Dictionary:TDictionary)=>{
-      this._Dictionary = Dictionary;
-    });
-  }
 
   provideCompletionItems(document:TextDocument, position:Position){
 
@@ -26,7 +12,7 @@ export default class implements CompletionItemProvider{
     const lineText = document.lineAt(position).text;
     const linePrefix = lineText.substr(0, position.character+1);
 
-    let regExpObj = getRegExp(this._conf.regExp);
+    let regExpObj = getRegExp(Conf.regExp);
     if(!regExpObj) {return;};
     regExpObj=regExpObj.replace(/\(\[\\w-\]\+\)/,'');
     if(!regExpObj) {return;};
@@ -35,7 +21,8 @@ export default class implements CompletionItemProvider{
     }
 
     // 获取所有key值提示
-    const result = getLocalesKeys(document,this._Dictionary);
+    if(!Dictionary) {return;}; 
+    const result = getLocalesKeys(document,Dictionary);
     if(!result) {return;};
 
     return result; 

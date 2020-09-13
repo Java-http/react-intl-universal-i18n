@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { parse } from "recast";
-import {TDictionary,TConf} from './type';
+import {TDictionary} from './Dictionary';
+import {TConf} from './conf';
 
 const Uri = vscode.Uri;
 const CompletionItem = vscode.CompletionItem;
@@ -127,7 +128,7 @@ export function getLocales(value:string,document:vscode.TextDocument,Dictionary:
 /** 获取多语言文件内容 */
 export async function getAllLocales(Conf:TConf){
   
-  if(!vscode.workspace.workspaceFolders || !vscode.workspace.workspaceFolders.length) {
+  if(!vscode.workspace.workspaceFolders?.length) {
     console.log("当前没有项目打开");
     return;
   }; 
@@ -351,20 +352,6 @@ export function getLocalesKeys(document:vscode.TextDocument,Dictionary:TDictiona
 
   return localesFirstKeys;
 };
-
-/** 获取配置 */
-export function getConf(defaultConf:TConf):TConf{
-  const Configuration = vscode.workspace.getConfiguration();
-  let configPath:string = Configuration.get('react-intl-universal-i18n.configPath',defaultConf.configPath);
-  let defaultDefinition:string = Configuration.get('react-intl-universal-i18n.defaultDefinition',defaultConf.defaultDefinition);
-  let regExp:string = Configuration.get('react-intl-universal-i18n.regExp',defaultConf.regExp);
-
-  return {
-    configPath,
-    defaultDefinition,
-    regExp
-  };
-}
 
 /** 解析正则表达式 */
 export function getRegExp(RegExpStr:string){
