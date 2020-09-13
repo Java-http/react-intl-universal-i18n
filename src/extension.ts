@@ -68,7 +68,7 @@ let dispose = ()=>{
 let watch = ()=>{
 	// 是否开启监听模式
 	if(Conf.watchMode){
-		const fileSystemWatcher = vscode.workspace.createFileSystemWatcher(`/*/${Conf.configPath}/*.{ts,js}`);
+		const fileSystemWatcher = vscode.workspace.createFileSystemWatcher(`**/${Conf.configPath}/*.{ts,js}`);
     // console.log("activate -> fileSystemWatcher", fileSystemWatcher);
 		fileSystemWatcher.onDidChange(()=>{
 			EventBus.emit("I18nReload");
