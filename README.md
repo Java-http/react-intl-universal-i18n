@@ -45,6 +45,10 @@
         - description: 多语言匹配格式,如果你不是`intl.get('$1')`这种格式,可自定义配置其他格式,`$1`是匹配词,必须存在哦    
         - type: `string`     
         - default: `"intl.get('$1')"`    
+- **`react-intl-universal-i18n.watchMode`**    
+        - description: 多语言文件修改是否开启监听模式
+        - type: `boolean`     
+        - default: `false`    
 
 ## Known Issues
 
