@@ -46,7 +46,7 @@
         - type: `string`     
         - default: `"intl.get('$1')"`    
 - **`react-intl-universal-i18n.watchMode`**    
-        - description: 多语言文件修改是否开启监听模式
+        - description: 多语言文件修改是否开启监听模式  
         - type: `boolean`     
         - default: `false`    
 
@@ -59,18 +59,18 @@
 ### 2 多语言文件有什么格式要求吗
 
 格式如下
-```
+```js
 export default {
   title: "abc",
   name:"name"
 };
-```
+``` 
 获取多语言`json`是通过`ast`解析,支持`ts`,`js`格式,但不支持多层嵌套
 
 ### 3 怎么改格式匹配
 
 当你的项目并不是`react-intl-universal`文档规定的格式,比如是`INTL.$t("title")`,那么你可通过修改配置(注意双引号要加反斜杠转义)  
-```
+```js
 "react-intl-universal-i18n.regExp":"INTL.$t(\"$1\")"
 ```  
 改完重启`Vscode`即可生效
