@@ -5,6 +5,7 @@ import I18nDefinitionProvider from './I18nDefinitionProvider';
 import I18nHoverProvider from './I18nHoverProvider';
 import I18nCompletionProvider from './I18nCompletionProvider';
 import I18nCommand from './I18nCommand';
+import I18nCommandTransform from './I18nCommandTransform';
 import {Dictionary} from  './Dictionary';
 
 /** 注册语言提示 */
@@ -13,6 +14,8 @@ let registerHoverProvider:vscode.Disposable|undefined;
 let registerDefinitionProvider:vscode.Disposable|undefined;
 /** 注册i18n转换 */
 let registerCommand:vscode.Disposable|undefined;
+/** 注册i18n一键转换 */
+let registerCommandTransform:vscode.Disposable|undefined;
 /** 注册i18n代码补全 */
 let registerCompletionProvider:vscode.Disposable|undefined;
 /** 注册i18n重启操作 */
@@ -38,6 +41,12 @@ let register = ()=>{
 		()=>(new I18nCommand())
 	);
 
+	// 注册i18n一键转换
+	registerCommandTransform = vscode.commands.registerCommand(
+		'react-intl-universal-i18n.i18nTransformAll',
+		()=>(new I18nCommandTransform())
+	);
+
 	// 注册i18n代码补全
 	registerCompletionProvider = vscode.languages.registerCompletionItemProvider(
 		["javascript", "javascriptreact","typescriptreact","typescript"],
@@ -60,6 +69,7 @@ let dispose = ()=>{
 	registerHoverProvider?.dispose();
 	registerDefinitionProvider?.dispose();
 	registerCommand?.dispose();
+	registerCommandTransform?.dispose();
 	registerCompletionProvider?.dispose();
 	registerCommandI18nReload?.dispose();
 };

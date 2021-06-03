@@ -34,27 +34,39 @@
 ## Extension Settings
 
 -  **`react-intl-universal-i18n.configPath`**  
-         - description: 多语言文件夹,默认为`src/locales`  
-         - type: `string`  
-         - default: `src/locales`
+  	- description: 多语言文件夹,默认为`src/locales`  
+  	- type: `string`  
+  	- default: `src/locales`
 - **`react-intl-universal-i18n.defaultDefinition`**  
-        - description: 多语言定义跳转文件,假如你选择了`en`,则默认跳转`en`语言文件,默认提供全部语言文件定义地址  
-        - type: `string`|`string[]`  
-        - default: `""` 
+  	- description: 多语言定义跳转文件,假如你选择了`en`,则默认跳转`en`语言文件,默认提供全部语言文件定义地址  
+  	- type: `string`|`string[]`  
+  	- default: `""` 
 - **`react-intl-universal-i18n.regExp`**    
-        - description: 多语言匹配格式,如果你不是`intl.get('$1')`这种格式,可自定义配置其他格式,`$1`是匹配词,必须存在哦    
-        - type: `string`     
-        - default: `"intl.get('$1')"`    
+ 		- description: 多语言匹配格式,如果你不是`intl.get('$1')`这种格式,可自定义配置其他格式,`$1`是匹配词,必须存在哦    
+  	- type: `string`     
+  	- default: `"intl.get('$1')"`    
 - **`react-intl-universal-i18n.watchMode`**    
-        - description: 多语言文件修改是否开启监听模式  
-        - type: `boolean`     
-        - default: `false`    
+  	- description: 多语言文件修改是否开启监听模式  
+  	- type: `boolean`     
+  	- default: `false`    
 
-## Known Issues
+### 实验性功能
 
-### 1 插件未提供监听功能
+#### 命令
+- **`i18nTransformAll`** 
+  - 一键搜索转换当前文档多语言文案
+  - 本功能尚在实验阶段,请先 `git add` 之前的状态,再转换 `git diff` 手工校验一次;
+#### 设置
+- **`react-intl-universal-i18n.import`**
+  - 引入多语言对象的语句,默认 `import {intl} from '@/utils/js/locales'`;
+  - type: `string`     
+  - default: `import {intl} from '@/utils/js/locales';`  
 
-当修改多语言文件内容后,请手动打开命令行输入`i18nReload`,作用是重新收集一次多语言文件内容
+## Issues
+
+### 1 插件已提供监听功能
+
+如果没有开启监听功能,当修改多语言文件内容后,请手动打开命令行输入`i18nReload`,作用是重新收集一次多语言文件内容
 
 ### 2 多语言文件有什么格式要求吗
 

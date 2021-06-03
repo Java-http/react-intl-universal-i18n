@@ -11,6 +11,8 @@ export interface TConf {
   regExp:string,
   /** 是否开启监听模式 */
   watchMode:boolean,
+  /** 引入多语言对象的语句 */
+  import: string,
 }
 
 const Conf:TConf = {
@@ -18,6 +20,7 @@ const Conf:TConf = {
   defaultDefinition: Configuration.get('react-intl-universal-i18n.defaultDefinition',''),
   regExp: Configuration.get('react-intl-universal-i18n.regExp',`intl.get('$1')`),
   watchMode: Configuration.get('react-intl-universal-i18n.watchMode',false),
+  import: Configuration.get('react-intl-universal-i18n.import',"import {intl} from '@/utils/js/locales';"),
 };
 
 export default Conf;
