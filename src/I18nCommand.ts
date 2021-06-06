@@ -1,5 +1,5 @@
 import {window} from 'vscode';
-import {transform} from './utils';
+import {transform} from './utils/utils';
 
 import Conf from './conf';
 import {Dictionary} from './Dictionary';

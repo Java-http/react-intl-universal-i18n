@@ -86,6 +86,7 @@ export default {
 "react-intl-universal-i18n.regExp":"INTL.$t(\"$1\")"
 ```  
 改完重启`Vscode`即可生效
+#### 4 实验性功能没有转换 intl.get('xx',{name:'xx'})
 
+目前实验性功能只支持普通转换,不能支持`intl.get('xx',{name:'xx'})` 自定义选项;
 
-**Enjoy!**

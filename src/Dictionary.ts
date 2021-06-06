@@ -1,5 +1,5 @@
 import Conf from "./conf";
-import { getAllLocales } from "./utils";
+import { getAllLocales } from "./utils/utils";
 import EventBus from './eventBus';
 
 /** 多语言类型 */

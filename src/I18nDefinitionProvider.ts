@@ -1,5 +1,5 @@
 import {DefinitionProvider,TextDocument,Position} from 'vscode';
-import {getRange,getWordLocation} from './utils';
+import {getRange,getWordLocation} from './utils/utils';
 
 import Conf from './conf';
 import {Dictionary} from './Dictionary';

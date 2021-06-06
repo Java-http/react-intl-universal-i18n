@@ -1,5 +1,5 @@
 import {HoverProvider,TextDocument,Position,Hover} from 'vscode';
-import {getRange,getLocales} from './utils';
+import {getRange,getLocales} from './utils/utils';
 
 import Conf from './conf';
 import {Dictionary} from './Dictionary';

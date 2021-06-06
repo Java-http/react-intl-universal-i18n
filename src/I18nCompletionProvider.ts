@@ -1,5 +1,5 @@
 import {CompletionItemProvider,TextDocument,Position} from 'vscode';
-import {getLocalesKeys,getRegExp} from './utils';
+import {getLocalesKeys,getRegExp} from './utils/utils';
 
 import Conf from './conf';
 import {Dictionary} from './Dictionary';
